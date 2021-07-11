@@ -8,8 +8,8 @@ export default class ParticlesLogo {
     this.scene = new THREE.Scene();
     this.container = options.element;
 
-    this.width = this.container.offsetWidth;
-    this.height = this.container.offsetHeight;
+    this.width = window.innerWidth;
+    this.height = window.innerHeight;
 
     this.renderer = new THREE.WebGLRenderer({
       antialias: true,
@@ -38,7 +38,6 @@ export default class ParticlesLogo {
       this.setupResize();
       this.onMouseMove();
       this.addLogo();
-
       this.render();
       this.onClick();
     });
@@ -49,8 +48,8 @@ export default class ParticlesLogo {
   }
 
   resize() {
-    this.width = this.container.offsetWidth;
-    this.height = this.container.offsetHeight;
+    this.width = window.innerWidth;
+    this.height = window.innerHeight;
     this.renderer.setSize(this.width, this.height);
     this.camera.aspect = this.width / this.height;
     this.camera.updateProjectionMatrix();
